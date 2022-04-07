@@ -6,7 +6,7 @@ Parameters:
     Description: Enter instance size. Default is t3.micro.
   WorkstationIp:
     Type: String
-    Default: 212.85.81.162/32
+    Default: 212.85.81.162
     Description: The IP address of the workstation that can SSH into the instance.
   AMI:
     Type: String
@@ -37,7 +37,7 @@ Resources:
   SubnetA:
     Type: AWS::EC2::Subnet
     Properties:
-      AvailabilityZone: eu-north-1
+      AvailabilityZone: eu-north-1a
       VpcId: !Ref VPC
       CidrBlock: 10.0.0.0/24
       MapPublicIpOnLaunch: true
@@ -131,48 +131,22 @@ Resources:
           Ebs:
             VolumeSize: 250
       Tags:
-        -
-          Key: Appplication
+        - Key: Appplication
           Value: Linux Server
-        -
-          Key: Domain
+        - Key: Domain
           Value: None
-        -
-          Key: Environment
+        - Key: Environment
           Value: Test
-        -
-          Key: LifeTime
+        - Key: LifeTime
           Value: Transient
-        -
-          Key: Name
+        - Key: Name
           Value: Linux Server
-        -
-          Key: OS
+        - Key: OS
           Value: Linux
-        -
-          Key: OwnerContact
+        - Key: OwnerContact
           Value: "@easec"
-        -
-          Key: Purpose
+        - Key: Purpose
           Value: Support Test Instance
-Outputs:
-  InstanceId:
-    Description: InstanceId of the newly created EC2 instance
-    Value: !Ref 'EC2Instance'
-  PublicDNS:
-    Description: Public DNSName of the newly created EC2 instance
-    Value: !GetAtt [EC2Instance, PublicDnsName]
-  PublicIP:
-    Description: Public IP address of the newly created EC2 instance
-    Value: !GetAtt [EC2Instance, PublicIp]
-        -
-          Key: Source
-          Value: easec Deploy
-      UserData:
-        Fn::Base64: |
-          #cloud-boothook
-          #!/bin/bash
-          echo "Hello World!"
 Outputs:
   PublicIp:
     Value:
