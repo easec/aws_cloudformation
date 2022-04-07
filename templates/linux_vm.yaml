@@ -6,6 +6,7 @@ Parameters:
     Description: Enter instance size. Default is t3.micro.
   WorkstationIp:
     Type: String
+    Default: 212.85.81.162/32
     Description: The IP address of the workstation that can SSH into the instance.
   AMI:
     Type: String
@@ -13,6 +14,7 @@ Parameters:
     Description: The Linux AMI to use.
   Key:
     Type: String
+    Default: easecmj0331
     Description: The key used to access the instance.
 Resources:
   VPC:
