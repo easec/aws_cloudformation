@@ -1,0 +1,22 @@
+# file: example_02_s3.yaml
+Parameters:
+  BucketName:
+    Type: String
+    Description: The name of the S3 bucket
+  Environment:
+    Description: This stack's environment.
+    Type: String
+    Default: dev
+    AllowedValues:
+      - dev
+      - test
+      - prod
+
+Resources:
+  ExampleBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref BucketName
+      Tags:
+        - Key: Env
+          Value: !Join [ '-', [ !Ref Environment, environment ] ]
