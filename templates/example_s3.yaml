@@ -1,0 +1,6 @@
+# file: example_s3.yaml
+Resources:
+  ExampleBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: 'example-s3'
