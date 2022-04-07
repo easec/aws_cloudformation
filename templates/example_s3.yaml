@@ -3,4 +3,4 @@ Resources:
   ExampleBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: 'example-s3'
+      BucketName: 'easecmj-01-s3'
