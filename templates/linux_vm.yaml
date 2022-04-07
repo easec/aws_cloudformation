@@ -132,7 +132,7 @@ Resources:
             VolumeSize: 250
       Tags:
         - Key: Appplication
-          Value: Linux Server
+          Value: Linux Server Dev
         - Key: Domain
           Value: None
         - Key: Environment
